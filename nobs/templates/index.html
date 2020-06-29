@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ home.title }}</title>
+    <title>{{ data.title }}</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <main class="container">
-        <h1>{{ home.title }}</h1>
+        <h1>{{ data.title }}</h1>
         
-        {% for article in articles %}
+        {% for article in data.articles %}
         <section class="article-summary">
             <h3>{{ article.title }}</h3>
             <p>

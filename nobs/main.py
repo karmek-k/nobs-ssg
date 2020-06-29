@@ -6,6 +6,7 @@ from pyfiglet import Figlet
 
 
 def get_args():
+    """Returns parsed command-line arguments"""
     parser = argparse.ArgumentParser()
     args = parser.parse_args()
 

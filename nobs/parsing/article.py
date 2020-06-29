@@ -1,14 +1,14 @@
 from datetime import date
 
-from markdown import markdown
+from markdown import markdown as parse_markdown
 
 
 class Article:
     """The class representing a single article"""
 
-    def __init__(self, html):
+    def __init__(self, markdown):
         """Creates an Article object"""
-        self.content = markdown(html)
+        self.content = parse_markdown(markdown)
 
         # placeholder
         self.date = date.today()

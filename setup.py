@@ -21,4 +21,6 @@ setuptools.setup(
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.7',
+    package_data={'': ['templates/**/*']},
+    include_package_data=True,
 )

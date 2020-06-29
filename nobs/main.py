@@ -4,6 +4,8 @@ import argparse
 from colorama import init as colorama_init, Fore, Back, Style
 from pyfiglet import Figlet
 
+from version import __version__
+
 
 def get_args():
     """Returns parsed command-line arguments"""
@@ -23,11 +25,8 @@ def main():
     print(Fore.CYAN, ascii_art, Style.RESET_ALL)
 
     # Display version
-    try:
-        version = __version__
-    except NameError:
-        version = 'UNDEFINED'
-    print(f'{Fore.GREEN}{Style.BRIGHT}Nobs-SSG - version {version}{Style.RESET_ALL}')
+    version_msg = f'Nobs-SSG - version {__version__}'
+    print(f'{Fore.GREEN}{Style.BRIGHT}{version_msg}{Style.RESET_ALL}')
 
     # Parse command-line arguments
     print()

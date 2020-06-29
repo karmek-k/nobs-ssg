@@ -1,12 +1,14 @@
 import setuptools
 
+from nobs.version import __version__
+
 
 with open('README.md') as readme_file:
     long_description = readme_file.read()
 
 setuptools.setup(
     name='nobs-ssg-karmek-k',
-    version='0.0.2',
+    version=__version__,
     author='Bartosz Gleń',
     description='Nobs Static Site Generator, fast and easy',
     long_description=long_description,

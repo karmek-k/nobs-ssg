@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ home.title }}</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <main class="container">
+        <h1>{{ home.title }}</h1>
+        
+        {% for article in articles %}
+        <section class="article-summary">
+            <h3>{{ article.title }}</h3>
+            <p>
+                {{ article.content[:300] }}
+
+                {# insert an ellipsis #}
+                {% if len(article.content) > 300 %}
+                ...
+                {% endif %}
+            </p>
+        </section>
+        {% endfor %}
+    </main>
+</body>
+</html>

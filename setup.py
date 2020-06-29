@@ -6,7 +6,7 @@ with open('README.md') as readme_file:
 
 setuptools.setup(
     name='nobs-ssg-karmek-k',
-    version='0.0.1',
+    version='0.0.2',
     author='Bartosz Gleń',
     description='Nobs Static Site Generator, fast and easy',
     long_description=long_description,

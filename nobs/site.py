@@ -1,38 +1,24 @@
-from abc import ABC, abstractmethod
-
-from jinja2 import Environment, PackageLoader, select_autoescape
-
-
-class Page(ABC):
-    """Abstract class for objects having their pages"""
-    template = None
-    css_files = []
-    data = {}
-
-    def __init__(self, **kwargs):
-        """
-        Initializes the jinja2 environment
-        and sets site data.
-        """
-        self.env = Environment(
-            loader=PackageLoader('nobs', 'templates'),
-            autoescape=select_autoescape(['html'])
-        )
-        for k, v in kwargs.items():
-            self.data[k] = v
-    
-    def __str__(self):
-        """Returns template name"""
-        return f'<Page instance with template: {self.template}>'
-    
-    def render(self):
-        """Returns rendered page"""
-        return self.env.get_template(self.template).render(
-            data=self.data
-        )
+"""Utilities for site creation"""
+import abc
 
 
-class ArticlePage(Page):
-    """Represents a single article in a blog"""
-    template = 'articles/article.html'
-    css_files = ['articles/article.css']
+class AbstractSiteFactory(abc.ABC):
+    """
+    An abstract site factory.
+    Site factories should inherit from this class.
+    """
+
+    @abc.abstractmethod
+    def load_files(self, loader):
+        """Load neccesary files - md sources, toml config etc."""
+        pass
+
+    @abc.abstractmethod
+    def render(self, **kwargs):
+        """Render the site's templates with provided data."""
+        pass
+
+    @abc.abstractmethod
+    def build(self):
+        """Create a browsable site structure that is ready for outputting."""
+        pass

@@ -71,5 +71,6 @@ class SourceFileLoader(AbstractFileLoader):
         return mapped_files
 
     def load_files(self):
+        """Yields file paths and their contents in a tuple."""
         for filepath in self.map_files()['src']:
             yield (str(filepath), filepath.read_text())

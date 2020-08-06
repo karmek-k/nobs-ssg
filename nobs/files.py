@@ -29,7 +29,10 @@ class TemplateFileLoader(AbstractFileLoader):
     def map_files(self,
             config_folder='config', factory_file='factory.py',
             config_file='config.toml', extensions={'html', 'css', 'js'}):
-        """Returns paths of template files and directories in the FileLoader's path."""
+        """
+        Returns Path objects of template files
+        and directories in the FileLoader's path.
+        """
         config_path = self.path / config_folder
 
         all_files = self.path.glob('**/*')
@@ -54,7 +57,7 @@ class TemplateFileLoader(AbstractFileLoader):
 class SourceFileLoader(AbstractFileLoader):
     """Class responsible for loading source files."""
     def map_files(self, extensions={'md'}):
-        """Returns paths of source files."""
+        """Returns Path objects of source files."""
         all_files = self.path.glob('**/*')
         src = filter(
             lambda fpath: fpath.suffix[1:] in extensions,

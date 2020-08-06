@@ -7,10 +7,20 @@ from pathlib import Path
 class AbstractFileLoader(abc.ABC):
     """Abstract class responsible for loading files."""
     def __init__(self, path):
+        # change path string to a Path object 
         self.path = path if isinstance(path, Path) else Path(path)
     
     @abc.abstractmethod
     def map_files(self):
+        """This method should return paths of all files under self.path."""
+        pass
+
+    @abc.abstractmethod
+    def load_files(self):
+        """
+        This method should yield all files' names
+        and contents in a tuple.
+        """
         pass
 
 
